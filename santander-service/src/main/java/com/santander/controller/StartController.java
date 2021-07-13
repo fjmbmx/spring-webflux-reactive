@@ -30,7 +30,7 @@ public class StartController {
     @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public Flux<User> getAllUsers() {
 
-        return userService.findAll();
+        return userService.findAll().delayElements(Duration.ofSeconds(1));
     }
 
     @PostMapping("/user")
