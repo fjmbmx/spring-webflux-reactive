@@ -27,7 +27,7 @@ public class StartController {
     @Value("${config.uploads.path}")
     private String path;
 
-    @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/users", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<User> getAllUsers() {
 
         return userService.findAll().delayElements(Duration.ofSeconds(1));
